@@ -1,0 +1,44 @@
+#pragma once
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <unordered_map>
+#include "Contact.h"
+
+class PhoneBook {
+public:
+    unsigned int index;
+
+    std::unordered_map<unsigned int, Contact> mainStorage;
+    std::unordered_map<std::string, unsigned int> firstNameIndex;
+    std::unordered_map<std::string, unsigned int> lastNameIndex;
+
+    std::unordered_map<std::string, unsigned int> phoneWorkIndex;
+    std::unordered_map<std::string, unsigned int> phoneHomeIndex;
+    std::unordered_map<std::string, unsigned int> phoneOfficeIndex;
+
+    std::unordered_map<std::string, unsigned int> emailIndex;
+
+public:
+    PhoneBook();
+    PhoneBook(const PhoneBook& phoneBook);
+    ~PhoneBook();
+
+    int get_index();
+    void set_index(int index);
+
+public:
+    void contact_creation_menu();
+    Contact contact_search_menu();
+    void edit_contact();
+    void delete_contact();
+    void contact_sort_menu();
+
+private:
+    void create_contact(Contact contact);
+    Contact search(char method, const std::string& value);
+    void edit_contact_fields(PhoneBook& book, unsigned int id);
+    void delete_contact_impl(PhoneBook& book, unsigned int id);
+    void list_sorted_contacts(char method);
+   
+};
