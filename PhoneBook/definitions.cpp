@@ -16,7 +16,7 @@ void PhoneBook::create_contact(Contact contact)
 {
     bool ok = true;
 
-    // -------- REQUIRED FOR CREATING A CONTACT --------
+    // -------- REQUIRED FOR CREATING A CONTACT -------
     // 1) First name + Last name
     if (!isValidName(contact.firstName) || !isValidName(contact.lastName)) {
         ok = false;
@@ -66,7 +66,7 @@ void PhoneBook::create_contact(Contact contact)
         return;
     }
 
-    // Address: optional – if not empty, must have at least one non-space
+    // Address: optional â€“ if not empty, must have at least one non-space
     static const std::regex addressPattern(R"(^.*\S.*$)");
     if (!contact.address.empty() &&
         !std::regex_match(contact.address, addressPattern)) {
@@ -74,7 +74,7 @@ void PhoneBook::create_contact(Contact contact)
         return;
     }
 
-    // Birthday: optional – if not empty, must be a valid past date
+    // Birthday: optional â€“ if not empty, must be a valid past date
     if (!contact.birthday.empty() && !isValidBirthday(contact.birthday)) {
         std::cout << "Invalid birthday." << std::endl;
         return;
@@ -524,3 +524,4 @@ void PhoneBook::list_sorted_contacts(char method)
         mainStorage.at(id).print_contact();  // uses your Contact::print_contact()
     }
 }
+
