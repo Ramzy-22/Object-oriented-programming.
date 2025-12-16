@@ -50,7 +50,7 @@ int main()
             break;
 
         case '2': {
-            // SEARCH CONTACT
+            // SEARCH FOR CONTACT
             Contact result = phoneBook.contact_search_menu();
             if (!result.firstName.empty() ||
                 !result.lastName.empty() ||
@@ -90,3 +90,4 @@ int main()
 
     return 0;
 }
+
